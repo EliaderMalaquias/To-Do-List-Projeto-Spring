@@ -28,6 +28,7 @@ public class Task {
     @Column(nullable = false, length = 1000)
     private String description;
 
+    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime createdIn;
 
     @ManyToOne

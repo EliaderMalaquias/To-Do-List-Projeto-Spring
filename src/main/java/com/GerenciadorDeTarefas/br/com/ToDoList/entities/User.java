@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +29,9 @@ public class User {
 
     @Column(nullable = false, length = 50)
     private String password;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime createdIn;
 
     @OneToMany(mappedBy = "user")
     List<Comments> comments = new ArrayList<>();
