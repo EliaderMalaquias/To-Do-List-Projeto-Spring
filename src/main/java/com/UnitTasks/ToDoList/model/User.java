@@ -1,5 +1,6 @@
 package com.UnitTasks.ToDoList.model;
 
+import com.UnitTasks.ToDoList.dtos.request.UserRequestDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,5 +26,11 @@ public class User {
     private String password;
 
     @Temporal(TemporalType.DATE)
-    private Date createdIn;
+    private Date createdIn = new Date();
+
+    public User(UserRequestDTO request) {
+        username = request.getUsername();
+        email = request.getEmail();
+        password = request.getPassword();
+    }
 }
